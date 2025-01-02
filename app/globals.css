@@ -3,19 +3,152 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-primary: #6bc4ff; /* Sky Blue */
+  --color-secondary: #97d567; /* Grass Green */
+  --color-accent: #ffcc4d; /* Warm Yellow */
+  --color-neutral: #f5f5f5; /* Light Neutral */
+  --font-primary: 'Poppins', sans-serif;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-primary);
+  margin: 0;
+  padding: 0;
+  background: url('../public/hero.png') center/cover no-repeat fixed;
+  color: #333;
+}
+
+h1,
+.hero h1 {
+  font-size: 4rem;
+  font-weight: bold;
+  color: var(--color-primary);
+  /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); */
+}
+
+p,
+.hero p {
+  font-size: 1.5rem;
+  margin-top: 1rem;
+  color: var(--color-secondary);
+  /* text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6); */
+}
+
+.main-container,
+.story-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.main-container {
+  height: 100vh;
+  text-align: center;
+}
+
+.story-form {
+  background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+  border-radius: 15px;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  gap: 1.5rem;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-label {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.form-input,
+textarea.form-input {
+  border: 2px solid var(--color-primary);
+  border-radius: 10px;
+  padding: 15px; /* Increased padding for larger input areas */
+  font-size: 1rem;
+  width: 100%;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+textarea.form-input {
+  resize: vertical; /* Allow vertical resizing */
+  min-height: 120px; /* Increased default height */
+  max-height: 300px; /* Optional: Limit maximum height */
+  font-size: 1rem;
+  line-height: 1.5; /* Better readability for longer text */
+}
+
+/* Submit Button */
+.submit-button {
+  background-color: var(--color-accent);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 15px 30px; /* Larger padding for prominence */
+  font-size: 1.25rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #ffc12d;
+}
+
+/* Floating Links */
+.floating-links {
+  margin-top: 3rem;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.floating-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  background-color: var(--color-secondary);
+  color: white;
+  font-size: 1.25rem;
+  border-radius: 50%;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.floating-links a:hover {
+  transform: scale(1.1);
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
 }
